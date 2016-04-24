@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>アルゴリズムの練習</title>
+
+<script>
+
+	//大小を比較する関数
+
+	var than = function(a,b) {
+		var a,b;
+
+		if(a > b){
+			return a + 'のほうがでかいよ';
+		}else if(a == b){
+			return a + 'と' + b  + 'は等しいよ';
+		}else{
+			return b + 'のほうがでかいよ';
+		}
+	}
+
+
+	console.log(than(2100,2100))
+
+//最大値を返す
+
+	function max(){
+
+		var result = 0;
+
+		for(var i = 0; i < arguments.length; i++){
+
+			if(result < arguments[i]){
+				result = arguments[i];
+			}
+
+		}
+
+		return result;
+
+	}
+
+	var testArra = [10,20,40,10000,30,30];
+
+	console.log(max(100000,1));
+
+		
+//２つのデータを入れ替える
+
+
+function change(){
+
+		var a,b;
+
+		var w = a;
+		var b = a;
+		var a = w;
+
+	console.log(a,b)
+
+}
+
+change(1,9);
+
+
+//合計値を返すアルゴリズム
+
+function summ(){
+
+	var result = 0;
+
+	for(var i = 0; i < arguments.length; i++){
+
+		result += arguments[i];
+
+	}
+
+	return result;
+}
+
+console.log(summ(20,10,10));
+
+//リニアサーチ関数 / 線形探索法 
+// targetが見つかったらtrue,なければfalseを返す
+
+
+function linearsearch(arr , target){
+
+	for(var i = 0; i < arr.length; i++){
+
+		if(arr[i] === target){
+
+			return true;
+
+			}
+
+		return false;
+
+	}
+
+};
+
+console.log(linearsearch([3,5,1,77,4,6], 8)); // false
+
+//バイナリサーチ
+
+//targetには実装、arrayには配列
+//すでに配列がソートされている事が条件
+
+function bSearch(target,array){
+
+	var left = 0; 
+	var right = array.length;
+	var center;
+
+	//変数にはインデックス番号が入る
+
+	//毎回計算し直すのは、どの変数なのか？を意識する。
+
+	while(left <= right){
+
+		center = Math.ceil((left + right) / 2); // 繰り上げ処理を行う。
+
+		if(array[center] == target){
+			return center;
+		}
+
+		//代入していくのは、配列の実数ではなく、インデックス番号
+
+		if(array[left] < target){ // 実数を比較して、
+			left = center + 1; // インデックスを代入
+		}else{
+			right = center -1;
+		}
+
+	}
+
+	return -1;
+}
+
+console.log(bSearch(30,[10,20,30]));
+
+</script>
+</body>
+</html>
